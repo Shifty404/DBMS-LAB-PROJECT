@@ -15,20 +15,8 @@ body {
 form {
     display: flex;
     flex-direction: column;
-}
-
-.form-link {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 18px;
-}
-
-.form-link a {
-    color: #028a0F;
-}
-
-.form-link a:hover {
-    color: #000000;
+    align-items: center;
+    margin-top: 50px;
 }
 
 h1 {
@@ -36,8 +24,12 @@ h1 {
     margin-bottom: 30px;
 }
 
+select,
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="email"],
+input[type="date"],
+input[type="tel"]    {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -64,4 +56,3 @@ label {
     margin-bottom: 10px;
     font-weight: bold;
 }
-
