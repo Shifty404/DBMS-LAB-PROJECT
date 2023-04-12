@@ -10,7 +10,7 @@ if ($db->connect_error) {
 
 $ID = $_SESSION['ID'];
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "post") {
   $question = $_POST["question"];
 
   $sql = "INSERT INTO `query`(`PatientID`,`Question`) VALUES ('$ID', '$question')";
@@ -32,7 +32,6 @@ $db->close();
 <head>
   <title>UMED</title>
   <style>
-
     input[type="submit"] {
       background-color: #028a0F;
       color: white;
@@ -51,9 +50,10 @@ $db->close();
 </head>
 
 <body>
-  <label for="question">Question:</label>
-  <textarea name="question" id="question"></textarea><br><br>
-  <input type="submit" value="Submit Query">
+  <form action="Submit_query.php" method="post">
+    <label for="question">Question:</label>
+    <textarea name="question" id="question"required></textarea><br><br>
+    <input type="submit" value="Submit Query">
   </form>
 
 </body>

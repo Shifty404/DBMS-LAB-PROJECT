@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dob = $_POST["dob"];
     $phone = $_POST["phone"];
 
-    $sql = "INSERT INTO `patient`(`AdminID`, `Name`, `Email`, `PASSWORD`, `DOB`, `Gender`, `Phone`) VALUES ('['1','$name','$email','$password','$dob','$gender','$phone')";
+    $sql = "INSERT INTO `patient`(`AdminID`, `Name`, `Email`, `PASSWORD`, `DOB`, `Gender`, `Phone`) VALUES ('1','$name','$email','$password','$dob','$gender','$phone')";
 
     if ($db->query($sql) === TRUE) {
         header("Location: Index.html");
@@ -23,9 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Error: " . $sql . "<br>" . $db->error;
     }
-
-    $db->close();
 }
+
+$db->close();
 
 ?>
 
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="container">
         <h1>Sign Up</h1>
-        <form method="post" action="signup.php">
+        <form method="post" action="Sign_up.php">
             <label for="name">Name:</label>
             <input type="text" name="name" required>
             <label for="email">Email:</label>
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="date" name="dob" required>
             <label for="phone">Phone:</label>
             <input type="tel" name="phone" required>
-            <input type="submit" value="Log in">
+            <input type="submit" value="Sign up">
         </form>
     </div>
 </body>
