@@ -1,0 +1,38 @@
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+button {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  background-color: #028a0f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.4s ease;
+}
+
+button:hover {
+  background-color: #000;
+}
+
+input[type="submit"] {
+  background-color: #028a0f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.4s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #000;
+}

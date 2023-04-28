@@ -11,61 +11,11 @@ $ID = $_SESSION['ID'];
 
 <head>
 	<title>UMED</title>
-	<style>
-		a {
-			text-decoration: none;
-			color: #ffffff;
-		}
-
-		body {
-			font-family: 'Times New Roman';
-			background-color: #ffffff;
-		}
-
-		.container {
-			margin: auto;
-			width: 50%;
-			border: 1px solid #ccc;
-			background-color: #fff;
-			padding: 20px;
-			box-shadow: 0px 0px 10px #ccc;
-		}
-
-		h1 {
-			text-align: center;
-			margin-bottom: 30px;
-		}
-
-		.buttons-container {
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-			align-items: center;
-			margin-top: 50px;
-		}
-
-		.buttons-container button {
-			margin: 10px;
-			padding: 10px 20px;
-			border: none;
-			border-radius: 4px;
-			font-size: 18px;
-			cursor: pointer;
-			transition: background-color 0.3s ease;
-		}
-
-		.buttons-container button {
-			background-color: #028a0F;
-			color: white;
-		}
-
-		.buttons-container button:hover {
-			background-color: #000;
-		}
-	</style>
+	<link rel="stylesheet" href="../../CSS files/Patient_Choose_query.css">
 </head>
 
 <body>
+	<button class="back" onclick="window.location.href='../Patient_panel.php'">Back</button>
 	<div class="container">
 		<h1>Query Page</h1>
 		<div class="buttons-container">
