@@ -13,21 +13,21 @@ $ID = $_SESSION['ID'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $doctor_id = $_POST["doctor_id"];
     $appointment_date = $_POST["appointment_date"];
+    $appointment_time = $_POST["appointment_time"];
 
-    $sql = "INSERT INTO `appointment`(`PatientID`, `DoctorID`, `Date`, `STATUS`) 
-            VALUES ('$ID','$doctor_id','$appointment_date','Pending')";
+    $_SESSION['doctor_id'] = $doctor_id;
+    $_SESSION['appointment_date'] = $appointment_date;
+    $_SESSION['Appointment_time'] = $appointment_time;
 
-    if ($db->query($sql) === TRUE) {
-        echo "Appointment scheduled successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $db->error;
-    }
+    header("Location: Appointment_payment.php");
+	exit();
 }
 
 $sql = "SELECT * FROM doctor";
 $result = $db->query($sql);
 
 $db->close();
+
 ?>
 
 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -42,6 +42,10 @@ $db->close();
         ?>
     </select><br><br>
     <label for="appointment_date">Appointment Date:</label>
-    <input type="datetime-local" name="appointment_date" id="appointment_date"><br><br>
-    <input type="submit" value="Appointment">
+    <input type="date" name="appointment_date" id="appointment_date" required><br><br>
+
+    <label for="appointment_time">Appointment Time:</label>
+    <input type="time" name="appointment_time" id="appointment_time" required><br><br>
+
+    <input type="submit" value="Appoint">
 </form>

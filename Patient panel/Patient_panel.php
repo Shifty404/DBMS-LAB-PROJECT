@@ -18,7 +18,7 @@ $PatientID = $user['PatientID'];
 $Name = $user['Name'];
 $DOB = $user['DOB'];
 $user['Gender'];
-if ($user['Gender'] == "M") {
+if ($user['Gender'] == "m") {
     $Gender = "MALE";
 }else{
     $Gender = "FEMALE";
@@ -57,6 +57,13 @@ $db->close();
         <p>Ask questions to the doctors.</p>
         <button><a href = "Query/Choose_query.php">Ask questions</a></button>
     </div>
+    <div class="patient-doctor_search">
+        <h3>Doctor search</h3>
+        <p>Searching doctor</p>
+        <button><a href = "Query/Choose_query.php">Ask questions</a></button>
+    </div>
+
+
 </body>
 
 </html>
