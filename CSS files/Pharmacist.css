@@ -4,74 +4,58 @@ a {
 }
 
 body {
-  font-family: 'Times New Roman';
+  font-family: "Times New Roman";
   background-color: #ffffff;
 }
 
-.patient-info h5 {
+.pharmacist-info h5 {
   font-size: 18px;
   font-weight: bold;
 }
 
-.patient-info li {
+.pharmacist-info li {
   font-size: 16px;
   margin-bottom: 5px;
 }
 
-.patient-appointments,
-.patient-query,
-.patient-doctor-search {
+.pharmacist-doctor,
+.pharmacist-pharmacist {
   background-color: white;
   border: 1px solid #ccc;
   padding: 20px;
   margin-bottom: 20px;
 }
 
-.patient-appointments h3,
-.patient-query h3,
-.patient-doctor-search h3 {
+.pharmacist-doctor h3,
+.pharmacist-pharmacist h3 {
   font-size: 18px;
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 10px;
 }
 
-.patient-appointments p,
-.patient-query p,
-.patient-doctor-search p {
+.pharmacist-doctor p,
+.pharmacist-pharmacist p {
   font-size: 16px;
   margin: 0;
   margin-bottom: 10px;
 }
 
-.patient-appointments button,
-.patient-query button,
-.patient-doctor-search button {
-  background-color: #028a0F;
+.pharmacist-doctor button,
+.pharmacist-pharmacist button {
+  background-color: #028a0f;
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 25px;
   cursor: pointer;
   font-size: 18px;
-  transition: background-color .4s ease;
+  transition: background-color 0.4s ease;
 }
 
-.patient-appointments button:hover,
-.patient-query button:hover ,
-.patient-doctor-search button:hover {
+.pharmacist-doctor button:hover,
+.pharmacist-pharmacist button:hover {
   background-color: #000000;
-}
-
-.navbar {
-  background-color: green;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.navbar-right {
-  margin-left: auto;
 }
 
 .navbar a {

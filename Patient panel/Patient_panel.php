@@ -20,7 +20,7 @@ $DOB = $user['DOB'];
 $user['Gender'];
 if ($user['Gender'] == "m") {
     $Gender = "MALE";
-}else{
+} else {
     $Gender = "FEMALE";
 }
 
@@ -37,32 +37,39 @@ $db->close();
 </head>
 
 <body>
+
+    <nav style="background-color: green; padding: 25px; display: flex; justify-content: space-between;">
+
+        <div style="display: flex; align-items: center; margin-left: auto;">
+            <a href="../Index.html">Log Out</a>
+        </div>
+    </nav>
+
     <h2>Patient Panel</h2>
     <div class="patient-info">
         <h5>Personal Information</h5>
         <ul>
-            <li>ID: <?php echo "$PatientID"?> </li>
-            <li>NAME: <?php echo "$Name"?></li>
-            <li>DOB: <?php echo "$DOB"?></li>
-            <li>GENDER: <?php echo "$Gender"?></li>
+            <li>ID: <?php echo "$PatientID" ?> </li>
+            <li>NAME: <?php echo "$Name" ?></li>
+            <li>DOB: <?php echo "$DOB" ?></li>
+            <li>GENDER: <?php echo "$Gender" ?></li>
         </ul>
     </div>
     <div class="patient-appointments">
         <h3>Appointment Scheduling</h3>
         <p>View available doctors and schedule appointments online.</p>
-        <button><a href = "Appointment.php">View Appointments</a></button>
+        <button><a href="Appointment.php">View Appointments</a></button>
     </div>
     <div class="patient-query">
         <h3>Query</h3>
         <p>Ask questions to the doctors.</p>
-        <button><a href = "Query/Choose_query.php">Ask questions</a></button>
+        <button><a href="Query/Choose_query.php">Ask Questions</a></button>
     </div>
-    <div class="patient-doctor_search">
-        <h3>Doctor search</h3>
+    <div class="patient-doctor-search">
+        <h3>Doctor Search</h3>
         <p>Searching doctor</p>
-        <button><a href = "Query/Choose_query.php">Ask questions</a></button>
+        <button><a href="Patient_search_doctor.php">Search</a></button>
     </div>
-
 
 </body>
 

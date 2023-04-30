@@ -44,7 +44,6 @@ if (isset($_POST['ID']) && isset($_POST['password'])) {
 $db->close();
 ?>
 
-
 <!DOCTYPE html>
 <html>
 
@@ -54,6 +53,7 @@ $db->close();
 </head>
 
 <body>
+<button class="back" onclick="window.location.href='Appointment.php'">Back</button>
     <div class="container">
 
         <h1>Payment</h1>

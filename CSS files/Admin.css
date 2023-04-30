@@ -4,62 +4,62 @@ a {
 }
 
 body {
-  font-family: 'Times New Roman';
+  font-family: "Times New Roman";
   background-color: #ffffff;
 }
 
-.patient-info h5 {
+.admin-info h5 {
   font-size: 18px;
   font-weight: bold;
 }
 
-.patient-info li {
+.admin-info li {
   font-size: 16px;
   margin-bottom: 5px;
 }
 
-.patient-appointments,
-.patient-query,
-.patient-doctor-search {
+.admin-doctor,
+.admin-pharmacist,
+.admin-patient {
   background-color: white;
   border: 1px solid #ccc;
   padding: 20px;
   margin-bottom: 20px;
 }
 
-.patient-appointments h3,
-.patient-query h3,
-.patient-doctor-search h3 {
+.admin-doctor h3,
+.admin-pharmacist h3,
+.admin-patient h3 {
   font-size: 18px;
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 10px;
 }
 
-.patient-appointments p,
-.patient-query p,
-.patient-doctor-search p {
+.admin-doctor p,
+.admin-pharmacist p,
+.admin-patient p {
   font-size: 16px;
   margin: 0;
   margin-bottom: 10px;
 }
 
-.patient-appointments button,
-.patient-query button,
-.patient-doctor-search button {
-  background-color: #028a0F;
+.admin-doctor button,
+.admin-pharmacist button,
+.admin-patient button {
+  background-color: #028a0f;
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 25px;
   cursor: pointer;
   font-size: 18px;
-  transition: background-color .4s ease;
+  transition: background-color 0.4s ease;
 }
 
-.patient-appointments button:hover,
-.patient-query button:hover ,
-.patient-doctor-search button:hover {
+.admin-doctor button:hover,
+.admin-pharmacist button:hover,
+.admin-patient button:hover {
   background-color: #000000;
 }
 
@@ -68,6 +68,10 @@ body {
   padding: 20px;
   display: flex;
   justify-content: center;
+}
+
+.navbar-left {
+  margin-right: auto;
 }
 
 .navbar-right {

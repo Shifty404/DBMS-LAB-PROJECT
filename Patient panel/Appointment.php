@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['Appointment_time'] = $appointment_time;
 
     header("Location: Appointment_payment.php");
-	exit();
+    exit();
 }
 
 $sql = "SELECT * FROM doctor";
@@ -30,22 +30,36 @@ $db->close();
 
 ?>
 
-<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-    <label for="doctor_id">Select a Doctor:</label>
-    <select name="doctor_id" id="doctor_id">
-        <?php
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo "<option value='" . $row["DoctorID"] . "'>" . $row["Name"] . "</option>";
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>UMED</title>
+    <link rel="stylesheet" href="../CSS files/Patient.css">
+</head>
+
+<body>
+    <button class="back" onclick="window.location.href='Patient_panel.php'">Back</button>
+    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <label for="doctor_id">Select a Doctor:</label>
+        <select name="doctor_id" id="doctor_id">
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<option value='" . $row["DoctorID"] . "'>" . $row["Name"] . "</option>";
+                }
             }
-        }
-        ?>
-    </select><br><br>
-    <label for="appointment_date">Appointment Date:</label>
-    <input type="date" name="appointment_date" id="appointment_date" required><br><br>
+            ?>
+        </select><br><br>
+        <label for="appointment_date">Appointment Date:</label>
+        <input type="date" name="appointment_date" id="appointment_date" required><br><br>
 
-    <label for="appointment_time">Appointment Time:</label>
-    <input type="time" name="appointment_time" id="appointment_time" required><br><br>
+        <label for="appointment_time">Appointment Time:</label>
+        <input type="time" name="appointment_time" id="appointment_time" required><br><br>
 
-    <input type="submit" value="Appoint">
-</form>
+        <input type="submit" value="Appoint">
+    </form>
+
+</body>
+
+</html>
