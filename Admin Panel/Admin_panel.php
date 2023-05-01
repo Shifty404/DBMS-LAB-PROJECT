@@ -57,7 +57,7 @@ $db->close();
     </div>
     <div class="admin-patient">
         <h3>Patient Info</h3>
-        <p>Patient info search.</p>
+        <p>Patient information search.</p>
         <button><a href="Admin_patient.php">Patient</a></button>
     </div>
 

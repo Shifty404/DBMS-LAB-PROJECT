@@ -1,10 +1,14 @@
 <?php
 
+session_start();
+
 $db = new mysqli("localhost", "admin", "1234", "umed");
 
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 }
+
+$ID = $_SESSION['ID'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -12,20 +16,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
     $password2 = $_POST["password2"];
-    $gender = $_POST["gender"];
-    $dob = $_POST["dob"];
+    $specialty = $_POST["specialty"];
     $phone = $_POST["phone"];
 
     if ($password == $password2) {
-        $sql = "INSERT INTO `patient`(`AdminID`, `Name`, `Email`, `PASSWORD`, `DOB`, `Gender`, `Phone`) VALUES ('1','$name','$email','$password','$dob','$gender','$phone')";
+        $sql = "INSERT INTO `pharmacist`(`AdminID`, `Name`, `Email`, `PASSWORD`, `Phone`) VALUES ('$ID','$name','$email','$password','$phone')";
 
         if ($db->query($sql) === TRUE) {
-            echo "<script>alert('Account created successfully!'); window.location = 'Index.html';</script>";
+            echo "<script>alert('Pharmacist account created successfully!'); window.location = 'Admin_pharmacist.php';</script>";
         } else {
-            echo "Error: " . $sql . "<br>" . $db->error;
+            echo "<script>alert('Error inserting pharmacist information.');</script>";
         }
-    } else {
-        echo "<script>alert('Check password again!');</script>";
+    }else{
+        echo "<script>alert('Check password again.');</script>";
     }
 }
 
@@ -33,19 +36,28 @@ $db->close();
 
 ?>
 
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>UMED</title>
-    <link rel="stylesheet" href="CSS files/Sign_up.css">
+    <link rel="stylesheet" href="../CSS files/Admin_doctor_insert.css">
 </head>
 
 <body>
+
+    <nav style="background-color: green; padding: 25px; display: flex; justify-content: space-between;">
+        <div style="display: flex; align-items: center;">
+            <a href="../Admin Panel/Admin_pharmacist.php" style="margin: 0 auto;">Back</a>
+        </div>
+        <div style="display: flex; align-items: center;">
+            <a href="../Index.html" style="margin: 0 auto;">Log Out</a>
+        </div>
+    </nav>
+
     <div class="container">
-        <h1>Sign Up</h1>
-        <form method="post" action="Sign_up.php">
+        <h1>Insert</h1>
+        <form method="post" action="Pharmacist_insert.php">
             <label for="name">Name:</label>
             <input type="text" name="name" required>
             <label for="email">Email:</label>
@@ -54,17 +66,9 @@ $db->close();
             <input type="password" name="password" required>
             <label for="password2">Password Again:</label>
             <input type="password" name="password2" required>
-            <label for="gender">Gender:</label>
-            <select name="gender" required>
-                <option value="">Select</option>
-                <option value="male">M</option>
-                <option value="female">F</option>
-            </select>
-            <label for="dob">DOB:</label>
-            <input type="date" name="dob" required>
             <label for="phone">Phone:</label>
             <input type="tel" name="phone" required>
-            <input type="submit" value="Sign up">
+            <input type="submit" value="Create">
         </form>
     </div>
 </body>
