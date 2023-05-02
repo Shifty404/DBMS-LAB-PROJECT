@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             echo "<script>alert('Error inserting doctor information.');</script>";
         }
-    }else{
+    } else {
         echo "<script>alert('Check password again.');</script>";
     }
 }
@@ -76,6 +76,20 @@ $db->close();
                 <option value="">Select</option>
                 <option value="Cardiologist">Cardiologist</option>
                 <option value="Dermatologist">Dermatologist</option>
+                <option value="Allergist">Allergist</option>
+                <option value="Endocrinologist">Endocrinologist</option>
+                <option value="Gastroenterologist">Gastroenterologist</option>
+                <option value="Nephrologist">Nephrologist</option>
+                <option value="Urologist">Urologist</option>
+                <option value="Neurologist">Neurologist</option>
+                <option value="Psychiatrist">Psychiatrist</option>
+                <option value="Diabetes">Diabetes</option>
+                <option value="Hormonal">Hormonal Diseases Specialist</option>
+                <option value="Thyroid">Thyroid</option>
+                <option value="Orthopedics">Orthopedics</option>
+                <option value="Micro Surgery">Micro Surgery Specialist</option>
+                <option value="Child Diseases">Child Diseases & Child Endocrinology Specialist</option>
+                <option value="Gynecologist">Gynecologist</option>
             </select>
             <label for="start_time">Start time:</label>
             <input type="time" name="start_time" required>

@@ -3,75 +3,69 @@
 
 <head>
     <title>UMED</title>
-    <link rel="stylesheet" href="../CSS files/Admin_query_insert.css">
+    <link rel="stylesheet" href="../CSS files/Admin_doctor_insert.css">
 </head>
 
 <body>
-
     <nav style="background-color: green; padding: 25px; display: flex; justify-content: space-between;">
         <div style="display: flex; align-items: center;">
-            <a href="../Patient panel/Patient_panel.php" style="margin: 0 auto;">Back</a>
+            <a href="../Doctor panel/Doctor_panel.php" style="margin: 0 auto;">Back</a>
         </div>
         <div style="display: flex; align-items: center;">
             <a href="../Index.html" style="margin: 0 auto;">Log Out</a>
         </div>
     </nav>
+    <br>
+    <h2>Answer Patient Query</h2>
+    <form action="Query_answer.php" method="POST">
+        <label for="query-id">Query ID:</label>
+        <input type="text" id="query-id" name="query-id" value="<?php echo isset($_GET['query-id']) ? $_GET['query-id'] : ''; ?>" readonly><br><br>
+        <label for="answer">Answer:</label>
+        <textarea id="answer" name="answer"></textarea><br><br>
+        <input type="submit" value="Submit">
+    </form>
 </body>
 
 </html>
 
 <?php
+session_start();
 
 $db = new mysqli("localhost", "admin", "1234", "umed");
 
-$sql = "SELECT * FROM query where 'Answer' is NULL";
+if ($db->connect_error) {
+    die("Connection failed: " . $db->connect_error);
+}
+
+$sql = "SELECT * FROM query WHERE Answer IS NULL";
 $result = $db->query($sql);
 
-echo "<h1>All queries:</h1>";
 echo "<table>";
-echo "<tr><th>Query ID</th><th>Patient ID</th><th>question</th></th></tr>";
+echo "<tr><th>Query ID</th><th>Patient ID</th><th>Question</th></tr>";
 while ($row = mysqli_fetch_assoc($result)) {
     echo "<tr>";
-    echo "<td>" . $row['queryid'] . "</td>";
-    echo "<td>" . $row['patientid'] . "</td>";
-    echo "<td>" . $row['question'] . "</td>";
+    echo "<td>" . $row['QueryID'] . "</td>";
+    echo "<td>" . $row['PatientID'] . "</td>";
+    echo "<td>" . $row['Question'] . "</td>";
+    echo "<td><a href='Query_answer.php?query-id=" . $row['QueryID'] . "'>Answer</a></td>";
     echo "</tr>";
 }
 echo "</table>";
 
-$db->close();
 
-echo "<h1>Search query:</h1>";
-echo "<form method='get'>";
-echo "<label>query ID:</label>";
-echo "<input type='text' name='queryID'>";
-echo "<input type='submit' value='Search'>";
-echo "</form>";
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $query_id = $_POST['query-id'];
+    $answer = $_POST['answer'];
+    $doctor_id = $_SESSION['ID'];
 
-if (isset($_GET['queryID'])) {
-
-    $db = new mysqli("localhost", "admin", "1234", "umed");
-    $queryID = $_GET['queryID'];
-    $query = "SELECT * FROM query WHERE queryID='$queryID'";
-    $result = mysqli_query($db, $query);
-
-
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        $queryid = $row['QueryID'];
-        $patientid = $row['PatientID'];
-        $question = $row['Question'];
-
-        echo "<h2>query Info:</h2>";
-        echo "<table>";
-        echo "<tr><td>Query ID:</td><td>$queryid</td></tr>";
-        echo "<tr><td>Patient ID:</td><td>$patientid</td></tr>";
-        echo "<tr><td>Question:</td><td>$question</td></tr>";
-
-        echo "</table>";
+    $sql = "UPDATE `query` SET `DoctorID`='$doctor_id', `Answer`='$answer' WHERE `QueryID`='$query_id'";
+    if ($db->query($sql) === TRUE) {
+        echo "<script>alert('Answer submitted successfully!'); window.location = 'Doctor_panel.php';</script>";
     } else {
-        echo "query not found.";
+        echo "<script>alert('Error!');</script>";
     }
 }
+
+$db->close();
 
 ?>
