@@ -39,7 +39,6 @@ $db->close();
 <body>
 
     <nav style="background-color: green; padding: 25px; display: flex; justify-content: space-between;">
-
         <div style="display: flex; align-items: center; margin-left: auto;">
             <a href="../Index.html">Log Out</a>
         </div>
@@ -58,7 +57,7 @@ $db->close();
     <div class="patient-appointments">
         <h3>Appointment Scheduling</h3>
         <p>View available doctors and schedule appointments online.</p>
-        <button><a href="Appointment.php">View Appointments</a></button>
+        <button><a href="Appointment.php">Appoint</a></button>
     </div>
     <div class="patient-query">
         <h3>Query</h3>

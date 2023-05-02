@@ -20,9 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = $_POST["phone"];
     $start_time = $_POST["start_time"];
     $end_time = $_POST["end_time"];
+    $doctorfee = $_POST["doctorfee"];
 
     if ($password == $password2) {
-        $sql = "INSERT INTO `doctor`(`AdminID`, `Name`, `Email`, `PASSWORD`, `Specialty`, `Phone`, `Start_time`, `End_time`) VALUES ('$ID','$name','$email','$password','$specialty','$phone','$start_time','$end_time')";
+        $sql = "INSERT INTO `doctor`(`AdminID`, `Name`, `Email`, `PASSWORD`, `Specialty`, `Phone`, `Start_time`, `End_time`, `DoctorFee`) VALUES ('$ID','$name','$email','$password','$specialty','$phone','$start_time','$end_time', '$doctorfee')";
+
 
         if ($db->query($sql) === TRUE) {
             echo "<script>alert('Doctor account created successfully!'); window.location = 'Admin_doctor.php';</script>";
@@ -56,6 +58,7 @@ $db->close();
             <a href="../Index.html" style="margin: 0 auto;">Log Out</a>
         </div>
     </nav>
+    <br>
 
     <div class="container">
         <h1>Insert Doctor Info</h1>
@@ -78,6 +81,8 @@ $db->close();
             <input type="time" name="start_time" required>
             <label for="End_time">End time:</label>
             <input type="time" name="end_time" required>
+            <label for="doctorfee">Doctor Fee:</label>
+            <input type="text" name="doctorfee" required>
             <label for="phone">Phone:</label>
             <input type="tel" name="phone" required>
             <input type="submit" value="Create">

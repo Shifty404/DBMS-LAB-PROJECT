@@ -57,14 +57,3 @@ body {
 .pharmacist-pharmacist button:hover {
   background-color: #000000;
 }
-
-.navbar a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  margin: 0 10px;
-}
-
-.navbar a:hover {
-  text-decoration: underline;
-}

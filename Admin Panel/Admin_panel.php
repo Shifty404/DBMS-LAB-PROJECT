@@ -31,12 +31,12 @@ $db->close();
 
 <body>
 
-    <nav class="navbar">
-        <div class="navbar-right">
+    <nav style="background-color: green; padding: 25px; display: flex; justify-content: space-between;">
+        <div style="display: flex; align-items: center; margin-left: auto;">
             <a href="../Index.html">Log Out</a>
         </div>
     </nav>
-
+    <br>
     <h2>Admin Panel</h2>
     <div class="admin-info">
         <h5>Personal Information</h5>

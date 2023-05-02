@@ -24,6 +24,7 @@ $ID = $_SESSION['ID'];
 			<a href="../../Index.html" style="margin: 0 auto;">Log Out</a>
 		</div>
 	</nav>
+	<br>
 	<div class="container">
 		<h1 style="text-align: center;">Query Page</h1>
 		<div class="buttons-container">

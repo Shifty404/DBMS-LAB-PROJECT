@@ -16,6 +16,7 @@ if (isset($_POST['retrieve'])) {
         $phone = $row['Phone'];
         $start_time = $row['Start_time'];
         $end_time = $row['End_time'];
+        $doctorfee = $row['DoctorFee'];
     } else {
         echo "<script>alert('Doctor not found.');</script>";
     }
@@ -24,7 +25,7 @@ if (isset($_POST['retrieve'])) {
 }
 
 if (isset($_POST['update'])) {
-    
+
     $db = new mysqli("localhost", "admin", "1234", "umed");
     $doctor_id = $_POST['doctor_id'];
     $name = $_POST['name'];
@@ -33,8 +34,9 @@ if (isset($_POST['update'])) {
     $phone = $_POST['phone'];
     $start_time = $_POST['start_time'];
     $end_time = $_POST['end_time'];
+    $doctorfee = $_POST["doctorfee"];
 
-    $query = "UPDATE doctor SET Name='$name', Email='$email', Specialty='$specialty', Phone='$phone', Start_time='$start_time', End_time='$end_time' WHERE DoctorID='$doctor_id'";
+    $query = "UPDATE doctor SET Name='$name', Email='$email', Specialty='$specialty', Phone='$phone', Start_time='$start_time', End_time='$end_time', DoctorFee='$doctorfee' WHERE DoctorID='$doctor_id'";
     $result = mysqli_query($db, $query);
 
     if ($result) {
@@ -90,6 +92,8 @@ if (isset($_POST['update'])) {
             <input type="time" name="start_time" value="<?php echo $start_time; ?>"><br>
             <label>End Time:</label>
             <input type="time" name="end_time" value="<?php echo $end_time; ?>"><br>
+            <label>Doctor Fee:</label>
+            <input type="text" name="doctorfee" value="<?php echo $doctorfee; ?>"><br>
             <input type="submit" name="update" value="Update">
         </form>
     <?php endif; ?>

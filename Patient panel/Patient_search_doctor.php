@@ -1,61 +1,81 @@
-<?php
-$name = isset($_POST['name']) ? $_POST['name'] : '';
-$specialty = isset($_POST['specialty']) ? $_POST['specialty'] : '';
-
-$db = new mysqli("localhost", "admin", "1234", "umed");
-
-if ($db->connect_error) {
-	die("Connection failed: " . $db->connect_error);
-}
-
-$sql = "SELECT * FROM doctor WHERE 1=1";
-if (!empty($name)) {
-	$sql .= " AND Name LIKE '%$name%'";
-}
-if (!empty($specialty)) {
-	$sql .= " AND Specialty LIKE '%$specialty%'";
-}
-
-$result =  $db->query($sql);
-
-$results_html = '';
-if ($result->num_rows > 0) {
-	$results_html .= "<h2>Results:</h2>";
-	$results_html .= "<table>";
-	$results_html .= "<tr><th>Name</th><th>Email</th><th>Specialty</th><th>Phone</th></tr>";
-	while ($row = $result->fetch_assoc()) {
-		$results_html .= "<tr><td>" . $row['Name'] . "</td><td>" . $row['Email'] . "</td><td>" . $row['Specialty'] . "</td><td>" . $row['Phone'] . "</td></tr>";
-	}
-	$results_html .= "</table>";
-} else {
-	$results_html .= "<h2>Results:</h2>";
-	$results_html .= "<p>No results found.</p>";
-}
-
-$db->close();
-?>
-
 <!DOCTYPE html>
 <html>
 
 <head>
 	<title>UMED</title>
+	<link rel="stylesheet" href="../CSS files/Admin_doctor_insert.css">
 </head>
 
 <body>
-	<button class="back" onclick="window.location.href='Patient_panel.php'">Back</button>
 
-	<h1>Search for a Doctor</h1>
-	<form method="post" action="Patient_search_doctor.php">
-		<label for="name">Name:</label>
-		<input type="text" name="name" id="name"><br>
-		<label for="specialty">Specialty:</label>
-		<input type="text" name="specialty" id="specialty"><br>
-		<input type="submit" value="Search">
-	</form>
-
-	<?php echo $results_html; ?>
-
+	<nav style="background-color: green; padding: 25px; display: flex; justify-content: space-between;">
+		<div style="display: flex; align-items: center;">
+			<a href="../Patient panel/Patient_panel.php" style="margin: 0 auto;">Back</a>
+		</div>
+		<div style="display: flex; align-items: center;">
+			<a href="../Index.html" style="margin: 0 auto;">Log Out</a>
+		</div>
+	</nav>
 </body>
 
 </html>
+
+<?php
+
+$db = new mysqli("localhost", "admin", "1234", "umed");
+
+$query = "SELECT * FROM Doctor";
+$result = mysqli_query($db, $query);
+
+echo "<h1>All Doctors:</h1>";
+echo "<table>";
+echo "<tr><th>Doctor ID</th><th>Name</th><th>Email</th><th>Specialty</th></th><th>Phone</th></tr>";
+while ($row = mysqli_fetch_assoc($result)) {
+  echo "<tr>";
+  echo "<td>" . $row['DoctorID'] . "</td>";
+  echo "<td>" . $row['Name'] . "</td>";
+  echo "<td>" . $row['Email'] . "</td>";
+  echo "<td>" . $row['Specialty'] . "</td>";
+  echo "<td>" . $row['Phone'] . "</td>";
+  echo "</tr>";
+}
+echo "</table>";
+
+$db->close();
+
+echo "<h1>Search Doctor:</h1>";
+echo "<form method='get'>";
+echo "<label>Doctor ID:</label>";
+echo "<input type='text' name='DoctorID'>";
+echo "<input type='submit' value='Search'>";
+echo "</form>";
+
+if (isset($_GET['DoctorID'])) {
+
+    $db = new mysqli("localhost", "admin", "1234", "umed");
+  $DoctorID = $_GET['DoctorID'];
+  $query = "SELECT * FROM doctor WHERE DoctorID='$DoctorID'";
+  $result = mysqli_query($db, $query);
+
+
+  if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $name = $row['Name'];
+    $email = $row['Email'];
+	$specialty = $row['Specialty'];
+    $phone = $row['Phone'];
+
+    echo "<h2>Doctor Info:</h2>";
+    echo "<table>";
+    echo "<tr><td>Doctor ID:</td><td>$DoctorID</td></tr>";
+    echo "<tr><td>Name:</td><td>$name</td></tr>";
+    echo "<tr><td>Email:</td><td>$email</td></tr>";
+	echo "<tr><td>Specialty:</td><td>$specialty</td></tr>";
+    echo "<tr><td>Phone:</td><td>$phone</td></tr>";
+    echo "</table>";
+  } else {
+    echo "Doctor not found.";
+  }
+}
+
+?>

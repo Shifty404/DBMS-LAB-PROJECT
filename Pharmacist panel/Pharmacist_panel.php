@@ -45,14 +45,9 @@ $db->close();
         </ul>
     </div>
     <div class="pharmacist-doctor">
-        <h3>Doctor Info</h3>
-        <p>Doctor information insert, update and delete.</p>
-        <button><a href="Pharmacist_doctor.php">Doctor</a></button>
-    </div>
-    <div class="pharmacist-pharmacist">
-        <h3>Pharmacist Info</h3>
-        <p>Pharmacist information insert, update and delete.</p>
-        <button><a href="Pharmacist_pharmacist.php">Pharmacist</a></button>
+        <h3>Prescription Search</h3>
+        <p>Can see patients prescription.</p>
+        <button><a href="../Pharmacist panel/Prescription_search.php">Search</a></button>
     </div>
 
 </body>
