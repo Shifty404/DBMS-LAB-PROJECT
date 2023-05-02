@@ -1,15 +1,19 @@
 <?php
 
+session_start();
+
 $db = new mysqli("localhost", "admin", "1234", "umed");
 
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 }
 
+$ID = $_SESSION['ID'];
+
 if (isset($_POST['search'])) {
     $date = $_POST['date'];
 
-    $sql = "SELECT `AppointmentID`, `PatientID`, `DoctorID`, `Date`, `STATUS`, `Time`, `diabetes`, `cholesterol`, `blood_pressure`, `Prescription` FROM `appointment` WHERE `Date` = '$date'";
+    $sql = "SELECT `AppointmentID`, `PatientID`, `DoctorID`, `Date`, `STATUS`, `Time`, `diabetes`, `cholesterol`, `blood_pressure`, `Prescription` FROM `appointment` WHERE 'DoctorID'= '$ID' AND `Date` = '$date'";
 
     $result = $db->query($sql);
 }
@@ -39,7 +43,7 @@ if (isset($_POST['search'])) {
     <form method="post">
         <label for="date">Date:</label>
         <input type="date" name="date" required>
-        <input type="submit" name="search"></input>
+        <input type="submit" name="search">
     </form>
     <?php if (isset($result) && $result->num_rows > 0) : ?>
         <h2>Appointments on <?php echo $date; ?>:</h2>

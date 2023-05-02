@@ -14,7 +14,6 @@ $sql = "SELECT * FROM doctor WHERE DoctorID = '$ID'";
 $result = $db->query($sql);
 $user = $result->fetch_assoc();
 
-$DoctorID = $user['DoctorID'];
 $Name = $user['Name'];
 
 $db->close();
@@ -41,7 +40,7 @@ $db->close();
     <div class="patient-info">
         <h5>Personal Information</h5>
         <ul>
-            <li>ID: <?php echo "$DoctorID" ?> </li>
+            <li>ID: <?php echo "$ID" ?> </li>
             <li>NAME: <?php echo "$Name" ?></li>
         </ul>
     </div>
@@ -59,6 +58,11 @@ $db->close();
         <h3>Medical History</h3>
         <p>See patient's previous medical history</p>
         <button><a href="../Doctor panel/Medical_history.php">See</a></button>
+    </div>
+    <div class="patient-query">
+        <h3>Query</h3>
+        <p>Can answer patients queries</p>
+        <button><a href="../Doctor panel/Query_answer.php">Answer</a></button>
     </div>
 
 </body>

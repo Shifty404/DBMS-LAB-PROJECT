@@ -46,7 +46,7 @@ $db->close();
   <br>
   <form action="Submit_query.php" method="post" style="text-align: center;">
     <label for="question">Question:</label>
-    <textarea name="question" id="question" required></textarea><br><br>
+    <textarea name="question" id="question" rows="5" cols="50" required></textarea><br><br>
     <input type="submit" value="Submit Query">
   </form>
 
