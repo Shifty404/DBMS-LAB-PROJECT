@@ -31,7 +31,7 @@
 	}
 
 	if (isset($_POST['patientID'])) {
-		
+
 		$patientID = $_POST['patientID'];
 
 		$query = "SELECT * FROM `appointment` WHERE `PatientID` = '$patientID' AND `STATUS` = 'Checked'";

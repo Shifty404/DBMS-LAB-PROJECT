@@ -43,7 +43,7 @@ input[type="time"] {
   font-size: 16px;
 }
 
-input[type="submit"] {
+input[type="submit"]{
   background-color: #028a0f;
   color: white;
   padding: 10px 20px;
