@@ -29,7 +29,17 @@ $db->close();
 </head>
 
 <body>
-  <button class="back" onclick="window.location.href='Choose_query.php'">Back</button>
+
+  <nav style="background-color: green; padding: 25px; display: flex; justify-content: space-between;">
+    <div style="display: flex; align-items: center;">
+      <a href="./Choose_query.php" style="margin: 0 auto;">Back</a>
+    </div>
+    <div style="display: flex; align-items: center;">
+      <a href="../../Index.html" style="margin: 0 auto;">Log Out</a>
+    </div>
+  </nav>
+  <br>
+
   <h1>My Queries</h1>
 
   <table>
