@@ -30,10 +30,10 @@ if (isset($_POST['ID']) && isset($_POST['password'])) {
 				header("Location: Patient panel/Patient_panel.php");
 				exit();
 			} else {
-				echo "Invalid information";
+				echo "<script>alert('Invalid information!')</script>";
 			}
 		}else{
-			echo "User not found";
+			echo "<script>alert('User not found!')</script>";
 		}
 
 	} else if ($firstThreeChars == "311") {
@@ -47,10 +47,10 @@ if (isset($_POST['ID']) && isset($_POST['password'])) {
 				header("Location: Doctor panel/Doctor_panel.php");
 				exit();
 			} else {
-				echo "Invalid information";
+				echo "<script>alert('Invalid information!')</script>";
 			}
 		}else{
-			echo "User not found";
+			echo "<script>alert('User not found!')</script>";
 		}
 
 	} else if ($firstThreeChars == "411") {
@@ -64,10 +64,10 @@ if (isset($_POST['ID']) && isset($_POST['password'])) {
 				header("Location: Pharmacist panel/Pharmacist_panel.php");
 				exit();
 			} else {
-				echo "Invalid information";
+				echo "<script>alert('Invalid information!')</script>";
 			}
 		}else{
-			echo "User not found";
+			echo "<script>alert('User not found!')</script>";
 		}
 
 	} else {
@@ -81,16 +81,16 @@ if (isset($_POST['ID']) && isset($_POST['password'])) {
 				header("Location: Admin panel/Admin_panel.php");
 				exit();
 			} else {
-				echo "Invalid information";
+				echo "<script>alert('Invalid information!')</script>";
 			}
 		}else{
-			echo "User not found";
+			echo "<script>alert('User not found!')</script>";
 		}
 
 	} 
 
 }else {
-	echo "User not found";
+	echo "<script>alert('User not found!')</script>";
 }
 
 $db->close();
