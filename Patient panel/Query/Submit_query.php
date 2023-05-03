@@ -16,9 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $sql = "INSERT INTO query (PatientID, Question) VALUES ('$ID', '$question')";
 
   if ($db->query($sql) === TRUE) {
-    echo "Query submitted successfully";
+    echo "<script>alert('Query submitted successfully!'); window.location = 'Choose_query.php';</script>";
+    echo "";
   } else {
-    echo "Error: " . $sql . "<br>" . $db->error;
+    echo "<script>alert('Error!');</script>";
   }
 }
 

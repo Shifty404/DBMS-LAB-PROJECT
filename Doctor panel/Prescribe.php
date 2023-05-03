@@ -26,7 +26,7 @@ if (isset($_POST['retrieve'])) {
         $blood_pressure = $row['blood_pressure'];
         $prescription = $row['Prescription'];
     } else {
-        echo "<script>alert('Appointment not found.');</script>";
+        echo "<script>alert('Appointment not found.');window.location = 'Doctor_panel.php';</script>";
     }
 
     mysqli_close($db);
@@ -107,7 +107,7 @@ if (isset($_POST['update'])) {
             ?>
             <br>
             <label>Prescription:</label>
-            <input type="text" name="prescription" value="<?php echo $prescription; ?>">
+            <textarea name="prescription" id="prescription" rows="5" cols="50" required><?php echo $prescription; ?></textarea>
             <br>
 
             <input type="submit" name="update" value="Update">

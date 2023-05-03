@@ -6,7 +6,7 @@ if (isset($_POST['retrieve'])) {
     $appointment_id = $_POST['appointment_id'];
     $patient_id = $_POST['patient_id'];
 
-    $query = "SELECT `AppointmentID`, `PatientID`, `DoctorID`, `Date`, `STATUS`, `Feedback`, `Time`, `diabetes`, `cholesterol`, `blood_pressure`, `Prescription` FROM `appointment` WHERE `AppointmentID` = '$appointment_id' AND `PatientID` = '$patient_id' AND `STATUS` = 'Checked'";
+    $query = "SELECT `AppointmentID`, `PatientID`, `DoctorID`, `Date`, `STATUS`, `Time`, `diabetes`, `cholesterol`, `blood_pressure`, `Prescription` FROM `appointment` WHERE `AppointmentID` = '$appointment_id' AND `PatientID` = '$patient_id' AND `STATUS` = 'Checked'";
     $result = $db->query($query);
 
     if (mysqli_num_rows($result) > 0) {

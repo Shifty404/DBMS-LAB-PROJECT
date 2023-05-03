@@ -19,7 +19,7 @@
     <h2>Answer Patient Query</h2>
     <form action="Query_answer.php" method="POST">
         <label for="query-id">Query ID:</label>
-        <input type="text" id="query-id" name="query-id" value="<?php echo isset($_GET['query-id']) ? $_GET['query-id'] : ''; ?>" readonly><br><br>
+        <input type="text" id="query-id" name="query-id"><br><br>
         <label for="answer">Answer:</label>
         <textarea id="answer" name="answer"></textarea><br><br>
         <input type="submit" value="Submit">
