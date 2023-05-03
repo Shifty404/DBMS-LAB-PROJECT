@@ -64,8 +64,6 @@ $db->close();
 
     <div class="container">
         <form method="POST" action="Appointment.php">
-
-
             <br>
             <h1>Appointment</h1>
             <br>
