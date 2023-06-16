@@ -1,0 +1,75 @@
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+body {
+  font-family: 'Times New Roman';
+  background-color: #ffffff;
+}
+
+.patient-info h5 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.patient-info li {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.patient-appointments,
+.patient-query,
+.patient-doctor-search {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.patient-appointments h3,
+.patient-query h3,
+.patient-doctor-search h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.patient-appointments p,
+.patient-query p,
+.patient-doctor-search p {
+  font-size: 16px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.patient-appointments button,
+.patient-query button,
+.patient-doctor-search button {
+  background-color: #028a0F;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color .4s ease;
+}
+
+.patient-appointments button:hover,
+.patient-query button:hover ,
+.patient-doctor-search button:hover {
+  background-color: #000000;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 0 10px;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}

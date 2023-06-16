@@ -1,0 +1,59 @@
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+body {
+  font-family: "Times New Roman";
+  background-color: #ffffff;
+}
+
+.pharmacist-info h5 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.pharmacist-info li {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.pharmacist-doctor,
+.pharmacist-pharmacist {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.pharmacist-doctor h3,
+.pharmacist-pharmacist h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.pharmacist-doctor p,
+.pharmacist-pharmacist p {
+  font-size: 16px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.pharmacist-doctor button,
+.pharmacist-pharmacist button {
+  background-color: #028a0f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.4s ease;
+}
+
+.pharmacist-doctor button:hover,
+.pharmacist-pharmacist button:hover {
+  background-color: #000000;
+}

@@ -1,0 +1,64 @@
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+body {
+  font-family: "Times New Roman";
+  background-color: #ffffff;
+}
+
+.admin-info h5 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.admin-info li {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.admin-doctor,
+.admin-pharmacist,
+.admin-patient {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.admin-doctor h3,
+.admin-pharmacist h3,
+.admin-patient h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.admin-doctor p,
+.admin-pharmacist p,
+.admin-patient p {
+  font-size: 16px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.admin-doctor button,
+.admin-pharmacist button,
+.admin-patient button {
+  background-color: #028a0f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.4s ease;
+}
+
+.admin-doctor button:hover,
+.admin-pharmacist button:hover,
+.admin-patient button:hover {
+  background-color: #000000;
+}
